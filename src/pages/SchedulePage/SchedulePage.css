@@ -1,0 +1,292 @@
+/* 전체 컨테이너: 헤더 너비와 일치시킴 */
+.schedule-container {
+  display: flex;
+  justify-content: center; /* 가로 중앙 */
+  align-items: stretch; /* 상단 정렬 (이게 center면 좁아 보일 수 있음) */
+  gap: 30px;
+  max-width: 1400px; /* 더 넓게 확장 */
+  margin: 0 auto;
+  width: 100%; /* 화면의 95% 사용 */
+}
+
+/* 왼쪽 달력 카드 */
+.calendar-card {
+  flex: 2; /* 달력을 일정보다 좀 더 넓게 */
+  min-width: 800px; /* 너무 좁아지지 않게 최소폭 설정 */
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* 오른쪽 할 일 카드 */
+.todo-card {
+  flex: 1;
+  min-width: 600px;
+  max-height: 750px;
+  overflow-y: auto;
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column; /* 내부 요소 세로 정렬 */
+}
+.todo-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.todo-list::-webkit-scrollbar-thumb {
+  background-color: #e2e8f0;
+  border-radius: 10px;
+}
+
+.calendar-header,
+.todo-header {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 25px;
+  color: #4a5568;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 화살표 버튼 스타일 살짝 수정 */
+.nav-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #5a67d8;
+  padding: 0 10px;
+}
+
+/* 달력 그리드 설정 */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  width: 100%;
+  table-layout: fixed;
+  gap: 12px;
+}
+
+.weekday {
+  font-weight: 700;
+  padding: 10px 0;
+  color: #a0aec0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* 개별 날짜 칸 */
+.day {
+  width: 100%;
+  min-height: 80px; /* 높이도 더 키워서 시원하게 */
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 12px;
+  font-weight: 500;
+  color: #2d3748;
+  transition: all 0.2s ease;
+}
+
+.day:hover:not(.empty) {
+  background-color: #f0f4ff;
+  color: #5a67d8;
+  transform: translateY(-2px);
+}
+
+.day.selected {
+  background-color: #aab7ec;
+  color: white !important;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(90, 103, 216, 0.3);
+}
+
+.day.empty {
+  cursor: default;
+}
+
+/* 입력창 및 버튼 */
+.todo-input-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.todo-input-row input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 2px solid #edf2f7;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.todo-input-row input:focus {
+  border-color: #5a67d8;
+}
+
+.add-btn {
+  padding: 0 25px;
+  background: #aab7ec;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.add-btn:hover {
+  opacity: 0.9;
+}
+
+/* 할 일 아이템 목록 */
+.todo-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.todo-item-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid #5d66d0; /* 왼쪽 파란 포인트 라인 */
+}
+
+.holiday-text-inline {
+  color: #ff4d4f;
+  margin-left: 5px;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+/* 버튼 */
+.edit-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+.save-btn {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.edit-input {
+  border: 1px solid #ddd;
+  padding: 5px;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 16px;
+}
+
+/* 체크박스 커스텀 스타일 */
+.todo-checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 15px; /* 글자와의 간격 */
+  transition: all 0.2s;
+  position: relative;
+}
+
+/* 체크되었을 때 보라색 배경 */
+.todo-checkbox:checked {
+  background-color: #5d66d0; /* 보라색 */
+  border-color: #5d66d0;
+}
+
+/* 체크 표시(V) 구현 */
+.todo-checkbox:checked::after {
+  content: "✔";
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.todo-content-area {
+  display: flex;
+  align-items: center; /* 세로 중앙 정렬 */
+  flex: 1;
+}
+
+/* 일정이 있을 시 달력 날짜에 점 */
+.day {
+  min-height: 80px; /* 칸 높이를 넉넉하게 확보 */
+  display: flex;
+  flex-direction: column; /* 세로 방향 정렬 */
+  align-items: center; /* 가로 중앙 정렬 */
+  justify-content: flex-start; /* 위에서부터 배치 */
+  padding: 5px 0;
+  cursor: pointer;
+  position: relative;
+}
+
+/* 공휴일 날짜 숫자 빨간색 */
+.day.holiday {
+  color: #ff4d4f;
+  font-weight: bold;
+}
+
+.day-number {
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+/* 공휴일 이름 */
+.day .holiday-name {
+  color: #ff4d4f !important;
+  font-size: 16px !important;
+  text-align: center;
+  display: block;
+  width: 95%;
+  white-space: nowrap; /* 줄바꿈 금지 */
+  overflow: hidden; /* 넘치는 글자 숨김 */
+  text-overflow: ellipsis; /* 넘치면 ... 표시 */
+
+  margin: 2px auto 0;
+}
+
+/* 기존 점 위치 살짝 하단으로 조정 */
+.todo-dot {
+  width: 5px;
+  height: 5px;
+  background-color: #5a67d8;
+  border-radius: 50%;
+  margin-top: auto; /* 점을 칸 아래쪽으로 밀어내기 */
+  margin-bottom: 6px;
+}

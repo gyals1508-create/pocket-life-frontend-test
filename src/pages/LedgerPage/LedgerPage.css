@@ -1,0 +1,100 @@
+/* LedgerPage.css */
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+
+.ledger-wrapper {
+  background-color: #f0f0ff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: "Jua", sans-serif;
+}
+
+.ledger-container {
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+  height: 850px;
+  gap: 20px;
+}
+
+/* 사이드바 */
+.sidebar {
+  width: 220px;
+  background-color: #b8b8ff;
+  border-radius: 40px;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 50px;
+}
+.side-nav {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.nav-btn {
+  width: 100%;
+  padding: 15px;
+  border-radius: 25px;
+  border: none;
+  background: white;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: "Jua", sans-serif;
+}
+.nav-btn.active {
+  background-color: #8e8efc;
+  color: white;
+}
+
+/* 메인 보드 */
+.main-board {
+  flex: 1;
+  background-color: #eaedf7;
+  border: 12px solid white;
+  border-radius: 40px;
+  padding: 25px 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 📍 수정의 핵심: 길게 이어진 흰색 한 칸 */
+.header-single-bar {
+  background-color: white; /* 한 칸으로 이어지는 흰색 배경 */
+  border-radius: 25px;
+  padding: 12px 30px;
+  display: flex;
+  justify-content: space-between; /* 글자와 날짜를 양 끝으로 */
+  align-items: center;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.view-title {
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+  font-weight: normal;
+}
+
+.date-badge {
+  background-color: #8e8efc; /* 1번 시안의 진보라 */
+  color: white;
+  padding: 6px 25px;
+  border-radius: 15px;
+  font-size: 15px;
+}
+
+.view-content {
+  flex: 1;
+}
