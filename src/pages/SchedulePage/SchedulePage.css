@@ -4,9 +4,10 @@
   justify-content: center; /* 가로 중앙 */
   align-items: stretch; /* 상단 정렬 (이게 center면 좁아 보일 수 있음) */
   gap: 30px;
-  max-width: 1400px; /* 더 넓게 확장 */
+  max-width: 1600px; /* [수정 2026-01-20] 누가: 효민, 무엇을: 최대 너비 확장, 어디서: SchedulePage.css 7번째 줄, 어떻게: 1400px -> 1600px, 왜: 내부 카드들의 최소 너비 합(1430px)이 컨테이너보다 커서 잘리는 문제 해결 */
   margin: 0 auto;
   width: 100%; /* 화면의 95% 사용 */
+  padding: 0 20px; /* [추가 2026-01-20] 누가: 효민, 무엇을: 좌우 패딩 추가, 어디서: SchedulePage.css 10번째 줄, 어떻게: padding 속성 추가, 왜: 화면 양옆에 여백을 주어 잘려보이지 않게 하기 위해 */
 }
 
 /* 왼쪽 달력 카드 */
@@ -17,6 +18,9 @@
   border-radius: 20px;
   padding: 40px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  /* [추가 2026-01-20] 누가: 효민, 무엇을: 테두리 추가, 어디서: SchedulePage.css 20, 34번째 줄, 
+  어떻게: border 속성 추가, 왜: 영역 구분이 명확하지 않아 잘려보인다는 피드백 반영 */
+  border: 1px solid #e2e8f0;
 }
 
 /* 오른쪽 할 일 카드 */
@@ -39,6 +43,11 @@
 .todo-list::-webkit-scrollbar-thumb {
   background-color: #e2e8f0;
   border-radius: 10px;
+}
+
+/* [추가 2026-01-20] 누가: 효민, 무엇을: 달력 타이틀 스타일 추가, 어디서: SchedulePage.css 44번째 줄, 어떻게: white-space: nowrap 추가, 왜: 년/월 텍스트가 좁은 화면에서 줄바꿈되는 것을 방지하기 위해 */
+.calendar-title-text {
+  white-space: nowrap;
 }
 
 .calendar-header,

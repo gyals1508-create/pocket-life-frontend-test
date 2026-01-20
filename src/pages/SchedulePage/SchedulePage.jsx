@@ -256,7 +256,10 @@ const SchedulePage = () => {
           <button onClick={prevMonth} className="nav-btn">
             {"<"}
           </button>
-          {currentDate.getFullYear()}년 {currentDate.getMonth() + 1}월
+          <span className="calendar-title-text">
+            {/* [수정 2026-01-20] 누가: 효민, 무엇을: 날짜 텍스트를 span으로 감쌈, 어디서: SchedulePage.jsx 260번째 줄, 어떻게: span 태그 추가, 왜: 날짜가 줄바꿈되는 현상을 방지하기 위해 스타일 적용 목적 */}
+            {currentDate.getFullYear()}년 {currentDate.getMonth() + 1}월
+          </span>
           <button onClick={nextMonth} className="nav-btn">
             {">"}
           </button>
